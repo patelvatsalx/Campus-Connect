@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Campus Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Campus Connect</span>
+        </a>
+        <label for="sidebar-toggle" class="sidebar-menu-btn">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </label>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="sidebar-item">
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="lost-found.html">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Lost & Found</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="events.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Events</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="confessions.html">
+            <i class="fa-solid fa-user-secret"></i>
+            <span>Confessions</span>
+          </a>
+        </li>
+        <li class="sidebar-item" style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="main-layout">
+      <header class="navbar">
+        <div class="flex align-center gap-2">
+          <label for="sidebar-toggle" class="sidebar-menu-btn" style="color: var(--text-dark); display: block; margin-right: 0.5rem;">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+          <div class="nav-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search profile...">
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="404.html" class="nav-icon-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-dot"></span>
+          </a>
+          <div class="profile-dropdown">
+            <input type="checkbox" id="profile-menu-toggle" class="dropdown-toggle" hidden>
+            <label for="profile-menu-toggle" class="profile-trigger">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Profile" class="profile-avatar">
+              <div class="profile-info">
+                <span class="profile-name">Priya Sharma</span>
+                <span class="profile-role">CSE • Semester 6</span>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-light);"></i>
+            </label>
+            <div class="dropdown-menu">
+              <a href="profile.html" class="dropdown-item">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fa-solid fa-gears"></i>
+                <span>Account Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="index.html" class="dropdown-item text-danger">
+                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
+                <span>Sign Out</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content animate-fade-in">
+        <div class="profile-banner"></div>
+        <div class="profile-card-header">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Avatar" class="profile-avatar-overlap">
+          <div class="profile-header-info">
+            <h2>Priya Sharma</h2>
+            <p class="text-muted">CSE • Semester 6 • Bio goes here</p>
+            <div class="profile-stats">
+              <div class="profile-stat-box">
+                <h4>12</h4>
+                <span>Events Joined</span>
+              </div>
+              <div class="profile-stat-box">
+                <h4>3</h4>
+                <span>Lost Items</span>
+              </div>
+              <div class="profile-stat-box">
+                <h4>5</h4>
+                <span>Found Items</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-nav">
+            <label for="tab-uploaded">Uploaded</label>
+            <label for="tab-saved">Saved</label>
+            <label for="tab-joined">Joined</label>
+          </div>
+          <div id="panel-uploaded" class="tab-panel">
+            <p class="text-muted">No uploads yet.</p>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>

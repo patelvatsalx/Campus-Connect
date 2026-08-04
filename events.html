@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Events - Campus Connect</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+
+    <!-- Sidebar Element -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Campus Connect</span>
+        </a>
+        <label for="sidebar-toggle" class="sidebar-menu-btn">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </label>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="sidebar-item">
+          <a href="dashboard">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="lost-found.html">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Lost & Found</span>
+          </a>
+        </li>
+        <li class="sidebar-item active">
+          <a href="events.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Events</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="confessions">
+            <i class="fa-solid fa-user-secret"></i>
+            <span>Confessions</span>
+          </a>
+        </li>
+        <li class="sidebar-item"
+          style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-layout">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="flex align-center gap-2">
+          <label for="sidebar-toggle" class="sidebar-menu-btn"
+            style="color: var(--text-dark); display: block; margin-right: 0.5rem;">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+          <div class="nav-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search events...">
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="404.html" class="nav-icon-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-dot"></span>
+          </a>
+          <div class="profile-dropdown">
+            <input type="checkbox" id="profile-menu-toggle" class="dropdown-toggle" hidden>
+            <label for="profile-menu-toggle" class="profile-trigger">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                alt="Profile" class="profile-avatar">
+              <div class="profile-info">
+                <span class="profile-name">Priya Sharma</span>
+                <span class="profile-role">CSE • Semester 6</span>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-light);"></i>
+            </label>
+            <div class="dropdown-menu">
+              <a href="profile.html" class="dropdown-item">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fa-solid fa-gears"></i>
+                <span>Account Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="index.html" class="dropdown-item text-danger">
+                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
+                <span>Sign Out</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CSS Only Filter Selection Controls -->
+      <input type="radio" name="evt-status" id="tab-upcoming" checked hidden>
+      <input type="radio" name="evt-status" id="tab-past" hidden>
+
+      <input type="radio" name="evt-cat" id="evt-all" checked hidden>
+      <input type="radio" name="evt-cat" id="evt-tech" hidden>
+      <input type="radio" name="evt-cat" id="evt-cult" hidden>
+      <input type="radio" name="evt-cat" id="evt-seminar" hidden>
+
+      <!-- Main Events Page Content -->
+      <main class="content animate-fade-in">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Campus Events</h1>
+            <p>Participate in college workshops, hackathons, seminars, and cultural festivals.</p>
+          </div>
+          <a href="#propose-modal" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+            <span>Propose Event</span>
+          </a>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tab-nav">
+          <label for="tab-upcoming">Upcoming Events</label>
+          <label for="tab-past">Past Events</label>
+        </div>
+
+        <!-- Filter Chips Section -->
+        <div class="filter-chips" style="margin-bottom: 2rem;">
+          <label for="evt-all" class="filter-chip-btn">All Categories</label>
+          <label for="evt-tech" class="filter-chip-btn">Technical</label>
+          <label for="evt-cult" class="filter-chip-btn">Cultural</label>
+          <label for="evt-seminar" class="filter-chip-btn">Seminars</label>
+        </div>
+
+        <!-- Event Cards Grid -->
+        <div class="grid grid-3">
+
+          <!-- Event 1: Hackathon -->
+          <div class="card-modern event-card upcoming-event cat-tech" style="padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=400"
+              alt="Event Poster" class="event-poster">
+            <div style="padding: 0.5rem 0.25rem; display: flex; flex-direction: column; flex: 1;">
+              <span class="badge badge-primary mb-2" style="width: fit-content;">Technical</span>
+              <h3 style="font-size: var(--font-size-md); margin-bottom: 0.5rem;">Byte Code Hackathon</h3>
+              <p class="text-muted mb-4" style="font-size: 0.85rem; line-height: 1.5;">
+                A 36-hour coding battle to build software solutions for local campus issues. Prizes worth $10,000!
+              </p>
+
+              <ul class="flex flex-column gap-1 text-muted mb-4"
+                style="list-style: none; font-size: var(--font-size-xs); margin-top: auto; padding: 0;">
+                <li><i class="fa-solid fa-calendar-day" style="width: 18px;"></i> July 12, 2026 • 10:00 AM</li>
+                <li><i class="fa-solid fa-location-dot" style="width: 18px;"></i> Lab Block B, CSE Floors</li>
+                <li><i class="fa-solid fa-users" style="width: 18px;"></i> Organizer: Coding Club</li>
+              </ul>
+
+              <!-- Interactive Buttons -->
+              <div class="flex justify-between align-center"
+                style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: auto;">
+                <a href="#evt-detail-1" class="btn btn-ghost"
+                  style="padding: 0.5rem; font-size: var(--font-size-xs);"><i class="fa-solid fa-circle-info"></i> View
+                  Details</a>
+                <a href="#register-success" class="btn btn-primary"
+                  style="padding: 0.5rem 1rem; font-size: var(--font-size-xs);">Register</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2: AI Seminar -->
+          <div class="card-modern event-card upcoming-event cat-seminar" style="padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=400"
+              alt="Event Poster" class="event-poster">
+            <div style="padding: 0.5rem 0.25rem; display: flex; flex-direction: column; flex: 1;">
+              <span class="badge badge-info mb-2" style="width: fit-content;">Seminar</span>
+              <h3 style="font-size: var(--font-size-md); margin-bottom: 0.5rem;">Artificial Intelligence Trends</h3>
+              <p class="text-muted mb-4" style="font-size: 0.85rem; line-height: 1.5;">
+                Speaker panels discussing LLMs, agent architectures, computer vision patterns, and research methodology.
+              </p>
+
+              <ul class="flex flex-column gap-1 text-muted mb-4"
+                style="list-style: none; font-size: var(--font-size-xs); margin-top: auto; padding: 0;">
+                <li><i class="fa-solid fa-calendar-day" style="width: 18px;"></i> July 18, 2026 • 02:00 PM</li>
+                <li><i class="fa-solid fa-location-dot" style="width: 18px;"></i> Main Auditorium Hall</li>
+                <li><i class="fa-solid fa-users" style="width: 18px;"></i> Organizer: Robotics Club</li>
+              </ul>
+
+              <div class="flex justify-between align-center"
+                style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: auto;">
+                <a href="#evt-detail-2" class="btn btn-ghost"
+                  style="padding: 0.5rem; font-size: var(--font-size-xs);"><i class="fa-solid fa-circle-info"></i> View
+                  Details</a>
+                <a href="#register-success" class="btn btn-primary"
+                  style="padding: 0.5rem 1rem; font-size: var(--font-size-xs);">Register</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3: Symphony Night -->
+          <div class="card-modern event-card upcoming-event cat-cult" style="padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=400"
+              alt="Event Poster" class="event-poster">
+            <div style="padding: 0.5rem 0.25rem; display: flex; flex-direction: column; flex: 1;">
+              <span class="badge badge-secondary mb-2" style="width: fit-content;">Cultural</span>
+              <h3 style="font-size: var(--font-size-md); margin-bottom: 0.5rem;">Symphony Rock Concert</h3>
+              <p class="text-muted mb-4" style="font-size: 0.85rem; line-height: 1.5;">
+                Annual cultural band fests, acoustic solos, food stalls, and neon laser stages.
+              </p>
+
+              <ul class="flex flex-column gap-1 text-muted mb-4"
+                style="list-style: none; font-size: var(--font-size-xs); margin-top: auto; padding: 0;">
+                <li><i class="fa-solid fa-calendar-day" style="width: 18px;"></i> August 05, 2026 • 06:00 PM</li>
+                <li><i class="fa-solid fa-location-dot" style="width: 18px;"></i> Open Air Theatre (OAT)</li>
+                <li><i class="fa-solid fa-users" style="width: 18px;"></i> Organizer: Music Society</li>
+              </ul>
+
+              <div class="flex justify-between align-center"
+                style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: auto;">
+                <a href="#evt-detail-3" class="btn btn-ghost"
+                  style="padding: 0.5rem; font-size: var(--font-size-xs);"><i class="fa-solid fa-circle-info"></i> View
+                  Details</a>
+                <a href="#register-success" class="btn btn-primary"
+                  style="padding: 0.5rem 1rem; font-size: var(--font-size-xs);">Register</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4: Past WebDev Workshop -->
+          <div class="card-modern event-card past-event cat-tech" style="padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=400"
+              alt="Event Poster" class="event-poster">
+            <div style="padding: 0.5rem 0.25rem; display: flex; flex-direction: column; flex: 1;">
+              <span class="badge badge-primary mb-2" style="width: fit-content;">Technical</span>
+              <h3 style="font-size: var(--font-size-md); margin-bottom: 0.5rem;">Responsive Web Design</h3>
+              <p class="text-muted mb-4" style="font-size: 0.85rem; line-height: 1.5;">
+                CSS Flexbox, CSS Grid layouts, and typography guidelines without using JS or external packages.
+              </p>
+
+              <ul class="flex flex-column gap-1 text-muted mb-4"
+                style="list-style: none; font-size: var(--font-size-xs); margin-top: auto; padding: 0;">
+                <li><i class="fa-solid fa-calendar-day" style="width: 18px;"></i> June 25, 2026 • Finished</li>
+                <li><i class="fa-solid fa-location-dot" style="width: 18px;"></i> Online Classroom</li>
+                <li><i class="fa-solid fa-users" style="width: 18px;"></i> Organizer: WebDev Circle</li>
+              </ul>
+
+              <div class="flex justify-between align-center"
+                style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: auto;">
+                <span class="text-muted" style="font-size: var(--font-size-xs);"><i
+                    class="fa-solid fa-circle-check text-success"></i> Completed</span>
+                <span class="badge badge-secondary">150 Attended</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CSS Only Modal for registering interest success -->
+        <div id="register-success" class="report-overlay animate-fade-in">
+          <div class="card-modern"
+            style="max-width: 420px; width: 100%; position: relative; padding: 2.5rem; text-align: center; margin: auto;">
+            <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+            <i class="fa-solid fa-circle-check text-success" style="font-size: 4rem; margin-bottom: 1.5rem;"></i>
+            <h3 class="mb-2">Registration Successful</h3>
+            <p class="text-muted mb-4" style="font-size: var(--font-size-sm); line-height: 1.5;">
+              You have successfully registered for the event. The details and calendar invites have been synced with
+              your student profile.
+            </p>
+            <a href="#" class="btn btn-primary w-full py-3">Done</a>
+          </div>
+        </div>
+
+        <!-- CSS Only Modal for Proposing Event -->
+        <div id="propose-modal" class="report-overlay animate-fade-in">
+          <div class="card-modern"
+            style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
+            <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+            <h3 class="mb-4">Propose Campus Event</h3>
+            <form action="#" method="get" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <input type="text" id="ev-title" class="form-control" placeholder=" " required>
+                <label for="ev-title" class="form-label">Event Title</label>
+              </div>
+              <div class="grid grid-2 mb-2">
+                <div class="form-group m-0">
+                  <select id="ev-category" class="form-control" required>
+                    <option value="tech">Technical</option>
+                    <option value="cult">Cultural</option>
+                    <option value="seminar">Seminar</option>
+                  </select>
+                  <label for="ev-category" class="form-label">Category</label>
+                </div>
+                <div class="form-group m-0">
+                  <input type="text" id="ev-org" class="form-control" placeholder=" " required>
+                  <label for="ev-org" class="form-label">Organizing Club</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea id="ev-desc" class="form-control" placeholder=" " required
+                  style="height: 80px; resize: none;"></textarea>
+                <label for="ev-desc" class="form-label">Short Description</label>
+              </div>
+              <div class="grid grid-3 mb-2">
+                <div class="form-group m-0">
+                  <input type="date" id="ev-date" class="form-control" placeholder=" " required>
+                  <label for="ev-date" class="form-label">Date</label>
+                </div>
+                <div class="form-group m-0">
+                  <input type="time" id="ev-time" class="form-control" placeholder=" " required>
+                  <label for="ev-time" class="form-label">Time</label>
+                </div>
+                <div class="form-group m-0">
+                  <input type="text" id="ev-loc" class="form-control" placeholder=" " required>
+                  <label for="ev-loc" class="form-label">Venue</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="file" class="form-control" accept="image/*">
+                <label class="form-label"
+                  style="transform: translateY(-135%) scale(0.85); color: var(--primary-color); background: var(--card-bg); padding: 0 0.35rem; left: 0.65rem;">Upload
+                  Poster</label>
+              </div>
+              <div class="flex gap-2 justify-end" style="margin-top: 1.5rem;">
+                <a href="#" class="btn btn-ghost">Cancel</a>
+                <button type="submit" class="btn btn-primary">Submit Proposal</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- CSS Only Detail Modals -->
+        <div id="evt-detail-1" class="report-overlay animate-fade-in">
+          <div class="card-modern"
+            style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
+            <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=500"
+              alt="Event Poster"
+              style="border-radius: var(--radius-md); margin-bottom: 1.5rem; max-height: 240px; object-fit: cover; width: 100%;">
+            <span class="badge badge-primary mb-2" style="width: fit-content;">Technical</span>
+            <h3 class="mb-3">Byte Code Hackathon</h3>
+            <p class="text-dark mb-4" style="font-size: var(--font-size-sm); line-height: 1.6;">
+              A 36-hour coding battle to build software solutions for local campus issues. Prizes worth $10,000! Teams
+              of 2-4 members can register. Bring your laptops, chargers, and sleeping bags. Meals and coffee will be
+              provided.
+            </p>
+            <div class="grid grid-3 text-muted"
+              style="font-size: var(--font-size-xs); background: var(--bg-color); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+              <div><i class="fa-solid fa-location-dot"></i> <strong>Venue:</strong> Lab Block B, CSE Floors</div>
+              <div><i class="fa-solid fa-calendar-day"></i> <strong>Schedule:</strong> July 12, 2026, 10 AM</div>
+              <div><i class="fa-solid fa-users"></i> <strong>Host:</strong> Coding Club</div>
+            </div>
+            <div class="flex gap-2 justify-end">
+              <a href="#" class="btn btn-ghost">Close</a>
+              <a href="#register-success" class="btn btn-primary">Register Now</a>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anonymous Confessions - Campus Connect</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+
+    <!-- Sidebar Element -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Campus Connect</span>
+        </a>
+        <label for="sidebar-toggle" class="sidebar-menu-btn">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </label>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="sidebar-item">
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="lost-found.html">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Lost & Found</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="events.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Events</span>
+          </a>
+        </li>
+        <li class="sidebar-item active">
+          <a href="confessions">
+            <i class="fa-solid fa-user-secret"></i>
+            <span>Confessions</span>
+          </a>
+        </li>
+        <li class="sidebar-item"
+          style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-layout">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="flex align-center gap-2">
+          <label for="sidebar-toggle" class="sidebar-menu-btn"
+            style="color: var(--text-dark); display: block; margin-right: 0.5rem;">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+          <div class="nav-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search confessions...">
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="404.html" class="nav-icon-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-dot"></span>
+          </a>
+          <div class="profile-dropdown">
+            <input type="checkbox" id="profile-menu-toggle" class="dropdown-toggle" hidden>
+            <label for="profile-menu-toggle" class="profile-trigger">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                alt="Profile" class="profile-avatar">
+              <div class="profile-info">
+                <span class="profile-name">Priya Sharma</span>
+                <span class="profile-role">CSE • Semester 6</span>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-light);"></i>
+            </label>
+            <div class="dropdown-menu">
+              <a href="profile.html" class="dropdown-item">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fa-solid fa-gears"></i>
+                <span>Account Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="index.html" class="dropdown-item text-danger">
+                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
+                <span>Sign Out</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- <input type="radio" name="conf-cat" id="conf-all" checked hidden>
+      <input type="radio" name="conf-cat" id="conf-funny" hidden>
+      <input type="radio" name="conf-cat" id="conf-rel" hidden>
+      <input type="radio" name="conf-cat" id="conf-life" hidden>
+      <input type="radio" name="conf-cat" id="conf-exam" hidden>
+      <input type="radio" name="conf-cat" id="conf-hostel" hidden>
+      <input type="radio" name="conf-cat" id="conf-gen" hidden>
+
+      
+      <main class="content animate-fade-in">
+        <div class="page-header" style="max-width: 680px; margin: 0 auto 2rem;">
+          <div class="page-title">
+            <h1>Anonymous Confessions</h1>
+            <p>Secure timeline feed for students to share stories and general feedback anonymously.</p>
+          </div>
+          <a href="#write-modal" class="btn btn-primary">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Write Confession</span>
+          </a>
+        </div>
+
+        
+        <div style="max-width: 680px; margin: 0 auto 1.5rem;">
+          
+          <div class="disclaimer-card">
+            <i class="fa-solid fa-circle-info text-warning" style="font-size: 1.25rem;"></i>
+            <span>All confessions are anonymous. Please respect others and avoid abusive content. Abuse or targeted harassment is subject to immediate moderation.</span>
+          </div>
+
+          
+          <div class="filter-chips">
+            <label for="conf-all" class="filter-chip-btn">All</label>
+            <label for="conf-funny" class="filter-chip-btn">Funny</label>
+            <label for="conf-rel" class="filter-chip-btn">Relationship</label>
+            <label for="conf-life" class="filter-chip-btn">College Life</label>
+            <label for="conf-exam" class="filter-chip-btn">Exams</label>
+            <label for="conf-hostel" class="filter-chip-btn">Hostel</label>
+            <label for="conf-gen" class="filter-chip-btn">General</label>
+          </div>
+        </div> -->
+
+
+
+      <div class="confession-composer">
+        <div class="confession-form-card">
+          <div class="confession-form-header">
+            <div class="confession-form-icon">
+              <i class="fa-solid fa-user-secret"></i>
+            </div>
+            <div>
+              <h3>Share an Anonymous Confession</h3>
+              <p>Speak honestly, keep it respectful, and help build a safer campus space.</p>
+            </div>
+          </div>
+
+
+
+          <form class="confession-form" action="/confessions" method="POST">
+            <div class="form-group">
+              <label for="confession-title">Title</label>
+              <input id="confession-title" type="text" name="title" placeholder="Enter Title" required>
+            </div>
+
+            <div class="form-group">
+              <label for="confession-content">Your confession</label>
+              <textarea id="confession-content" name="content" placeholder="Write Something" required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Post Confession</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Timeline Confession Feed -->
+      <div class="confessions-feed">
+
+        <h1>All Confessions</h1>
+        <% allconfessions.forEach(confession=> { %>
+          <h2>
+            <%= confession.title %>
+          </h2>
+          <p>
+            <%= confession.content %>
+          </p>
+          <% }) %>        
+
+            <!-- <div class="confession-card">
+              
+
+              <div class="conf-meta">
+                <div class="conf-avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+
+                </div>
+
+                <div class="conf-sender">
+
+                </div> -->
+
+                <!-- CSS Only Modal for Writing Confessions -->
+                <div id="write-modal" class="report-overlay animate-fade-in">
+                  <div class="card-modern"
+                    style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
+                    <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+                    <h3 class="mb-4">Submit Anonymous Confession</h3>
+                    <form action="#" method="get" onsubmit="event.preventDefault();">
+                      <div class="form-group">
+                        <select id="conf-category-select" class="form-control" required>
+                          <option value="funny">Funny</option>
+                          <option value="relationship">Relationship</option>
+                          <option value="life">College Life</option>
+                          <option value="exams">Exams</option>
+                          <option value="hostel">Hostel</option>
+                          <option value="general" selected>General</option>
+                        </select>
+                        <label for="conf-category-select" class="form-label">Category</label>
+                      </div>
+                      <div class="form-group">
+                        <textarea id="conf-content-area" class="form-control" placeholder=" " required
+                          style="height: 140px; resize: none;"></textarea>
+                        <label for="conf-content-area" class="form-label">Write your confession thoughts here...</label>
+                      </div>
+
+                      <div class="card-modern"
+                        style="padding: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); background: rgba(245, 158, 11, 0.05); margin-bottom: 1.5rem;">
+                        <label class="flex align-center gap-2" style="cursor: pointer; font-size: var(--font-size-xs);">
+                          <input type="checkbox" required style="accent-color: var(--primary-color);">
+                          <span class="text-muted">I certify this confession respects campus rules and doesn't target
+                            individuals by name.</span>
+                        </label>
+                      </div>
+
+                      <div class="flex gap-2 justify-end">
+                        <a href="#" class="btn btn-ghost">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Submit Confession</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- CSS Only Report Modal Confirmation -->
+                <div id="report-modal" class="report-overlay animate-fade-in">
+                  <div class="card-modern"
+                    style="max-width: 440px; width: 100%; position: relative; padding: 2.5rem; text-align: center; margin: auto;">
+                    <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+                    <i class="fa-solid fa-circle-exclamation text-danger"
+                      style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3 class="mb-2">Report Confession</h3>
+                    <p class="text-muted mb-4" style="font-size: var(--font-size-sm); line-height: 1.4;">
+                      Are you sure you want to report this confession for containing abusive, spammy, or
+                      guideline-violating
+                      content?
+                    </p>
+                    <div class="flex gap-2">
+                      <a href="#" class="btn btn-ghost" style="flex: 1;">Cancel</a>
+                      <a href="#report-success" class="btn btn-danger" style="flex: 1;">Report Post</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CSS Only Report Success Confirmation -->
+                <div id="report-success" class="report-overlay animate-fade-in">
+                  <div class="card-modern"
+                    style="max-width: 420px; width: 100%; position: relative; padding: 2.5rem; text-align: center; margin: auto;">
+                    <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+                    <i class="fa-solid fa-circle-check text-success"
+                      style="font-size: 4rem; margin-bottom: 1.5rem;"></i>
+                    <h3 class="mb-2">Thank You</h3>
+                    <p class="text-muted mb-4" style="font-size: var(--font-size-sm); line-height: 1.5;">
+                      This confession has been sent to student moderators for immediate review. If it violates our
+                      policy,
+                      it will be deleted within 24 hours.
+                    </p>
+                    <a href="#" class="btn btn-primary w-full py-3">Done</a>
+                  </div>
+                </div>
+
+                <!-- CSS Only Share Modal Confirmation -->
+                <div id="share-modal" class="report-overlay animate-fade-in">
+                  <div class="card-modern"
+                    style="max-width: 440px; width: 100%; position: relative; padding: 2.5rem; text-align: center; margin: auto;">
+                    <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+                    <i class="fa-regular fa-share-from-square text-primary"
+                      style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3 class="mb-2">Share Confession</h3>
+                    <p class="text-muted mb-4" style="font-size: var(--font-size-sm);">
+                      Copy link to clipboard or share with classmates.
+                    </p>
+                    <div class="card-modern"
+                      style="padding: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); text-align: left; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                      <span class="text-muted"
+                        style="font-size: var(--font-size-xs); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px;">https://campusconnect.edu/confessions/1495</span>
+                      <a href="#" class="text-primary font-weight-600" style="font-size: var(--font-size-xs);"><i
+                          class="fa-regular fa-copy"></i> Copy</a>
+                    </div>
+                    <a href="#" class="btn btn-primary w-full py-3">Close</a>
+                  </div>
+                </div>
+
+                <!-- CSS Only Comments Modal -->
+                <div id="comments-modal" class="report-overlay animate-fade-in">
+                  <div class="card-modern"
+                    style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
+                    <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+                    <h3 class="mb-4">Comments Feed</h3>
+
+                    <div class="flex flex-column gap-3 mb-4"
+                      style="max-height: 240px; overflow-y: auto; padding-right: 0.5rem;">
+                      <div class="activity-item" style="padding-bottom: 0.75rem;">
+                        <div class="conf-avatar" style="width: 32px; height: 32px; font-size: 0.9rem;"><i
+                            class="fa-solid fa-user-secret"></i></div>
+                        <div class="activity-details">
+                          <p><strong>Anonymous Student:</strong> "Mess food committee definitely needs to look into
+                            this.
+                            Paneer should not be bounceable!"</p>
+                          <span class="activity-time">1 hour ago</span>
+                        </div>
+                      </div>
+                      <div class="activity-item" style="padding-bottom: 0.75rem;">
+                        <div class="conf-avatar" style="width: 32px; height: 32px; font-size: 0.9rem;"><i
+                            class="fa-solid fa-user-secret"></i></div>
+                        <div class="activity-details">
+                          <p><strong>Anonymous Student:</strong> "I've been skipping mess paneer entirely and eating at
+                            the
+                            library canteen."</p>
+                          <span class="activity-time">45 minutes ago</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <form action="#" method="get" onsubmit="event.preventDefault();">
+                      <div class="form-group mb-3">
+                        <input type="text" id="new-comment" class="form-control" placeholder=" " required
+                          autocomplete="off">
+                        <label for="new-comment" class="form-label">Write an anonymous comment...</label>
+                      </div>
+                      <div class="flex gap-2 justify-end">
+                        <a href="#" class="btn btn-ghost">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                </main>
+              </div>
+            </div>
+
+</body>
+
+</html>

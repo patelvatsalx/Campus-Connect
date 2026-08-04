@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Campus Connect</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+
+    <!-- Sidebar Element -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Campus Connect</span>
+        </a>
+        <label for="sidebar-toggle" class="sidebar-menu-btn">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </label>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="sidebar-item">
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="lost-found.html">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Lost & Found</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="events.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Events</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="confessions.html">
+            <i class="fa-solid fa-user-secret"></i>
+            <span>Confessions</span>
+          </a>
+        </li>
+        <li class="sidebar-item active" style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-layout">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="flex align-center gap-2">
+          <label for="sidebar-toggle" class="sidebar-menu-btn" style="color: var(--text-dark); display: block; margin-right: 0.5rem;">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+          <div class="nav-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search settings...">
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="404.html" class="nav-icon-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-dot"></span>
+          </a>
+          <div class="profile-dropdown">
+            <input type="checkbox" id="profile-menu-toggle" class="dropdown-toggle" hidden>
+            <label for="profile-menu-toggle" class="profile-trigger">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Profile" class="profile-avatar">
+              <div class="profile-info">
+                <span class="profile-name">Priya Sharma</span>
+                <span class="profile-role">CSE • Semester 6</span>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-light);"></i>
+            </label>
+            <div class="dropdown-menu">
+              <a href="profile.html" class="dropdown-item">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fa-solid fa-gears"></i>
+                <span>Account Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="index.html" class="dropdown-item text-danger">
+                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
+                <span>Sign Out</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Settings Layout wrapper (Pure CSS Tab Selection) -->
+      <main class="content animate-fade-in">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Settings Portal</h1>
+            <p>Modify your account parameters, notification filters, and appearance options.</p>
+          </div>
+        </div>
+
+        <!-- Setting Controls Structure (Connected to radio selects in body) -->
+        <input type="radio" name="sett-tabs" id="sett-acc" checked hidden>
+        <input type="radio" name="sett-tabs" id="sett-priv" hidden>
+        <input type="radio" name="sett-tabs" id="sett-notif" hidden>
+        <input type="radio" name="sett-tabs" id="sett-app" hidden>
+        <input type="radio" name="sett-tabs" id="sett-sec" hidden>
+
+        <div class="settings-layout">
+          <!-- Navigation Sidebar inside settings -->
+          <div class="settings-tabs">
+            <div class="settings-tab-list">
+              <label for="sett-acc"><i class="fa-regular fa-user"></i> Account</label>
+              <label for="sett-priv"><i class="fa-solid fa-eye-slash"></i> Privacy</label>
+              <label for="sett-notif"><i class="fa-regular fa-bell"></i> Notifications</label>
+              <label for="sett-app"><i class="fa-solid fa-wand-magic-sparkles"></i> Appearance</label>
+              <label for="sett-sec"><i class="fa-solid fa-shield-halved"></i> Security</label>
+            </div>
+          </div>
+
+          <!-- Content Panel details -->
+          <div class="card-modern settings-content" style="padding: 2rem;">
+            
+            <!-- Panel 1: Account Settings -->
+            <div class="tab-panel animate-fade-in" id="sett-panel-acc">
+              <h3 class="mb-4">Account Profile</h3>
+              <form onsubmit="event.preventDefault();">
+                <div class="grid grid-2 mb-3">
+                  <div class="form-group m-0">
+                    <input type="text" id="p-name" class="form-control" placeholder=" " value="Priya Sharma" required>
+                    <label for="p-name" class="form-label">Full Name</label>
+                  </div>
+                  <div class="form-group m-0">
+                    <input type="email" id="p-mail" class="form-control" placeholder=" " value="priya.sharma@college.edu" required>
+                    <label for="p-mail" class="form-label">College Email</label>
+                  </div>
+                </div>
+                <div class="grid grid-2 mb-4">
+                  <div class="form-group m-0">
+                    <select id="p-branch" class="form-control" required>
+                      <option value="Computer Science" selected>Computer Science</option>
+                      <option value="Information Technology">Information Technology</option>
+                      <option value="Electronics & Communication">Electronics & Comm.</option>
+                    </select>
+                    <label for="p-branch" class="form-label">Department</label>
+                  </div>
+                  <div class="form-group m-0">
+                    <select id="p-sem" class="form-control" required>
+                      <option value="5">Semester 5</option>
+                      <option value="6" selected>Semester 6</option>
+                      <option value="7">Semester 7</option>
+                    </select>
+                    <label for="p-sem" class="form-label">Semester</label>
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <input type="text" id="p-bio" class="form-control" placeholder=" " value="Software developer interested in Full-Stack Web Development, Data Structures, and UI/UX Design.">
+                  <label for="p-bio" class="form-label">Biography</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+              </form>
+            </div>
+
+            <!-- Panel 2: Privacy -->
+            <div class="tab-panel animate-fade-in" id="sett-panel-priv">
+              <h3 class="mb-4">Privacy Options</h3>
+              <div class="flex flex-column gap-1">
+                <div class="switch-control">
+                  <div>
+                    <h4 class="m-0" style="font-size: var(--font-size-sm);">Public Profile Search</h4>
+                    <p class="text-muted" style="font-size: var(--font-size-xs);">Allow peers to locate your profile in student search grids.</p>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="switch-control">
+                  <div>
+                    <h4 class="m-0" style="font-size: var(--font-size-sm);">Display Reported Lost Items on Profile</h4>
+                    <p class="text-muted" style="font-size: var(--font-size-xs);">Show active lost/found items reported by you in your profile list.</p>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="switch-control">
+                  <div>
+                    <h4 class="m-0" style="font-size: var(--font-size-sm);">Anonymize Confession Feedback</h4>
+                    <p class="text-muted" style="font-size: var(--font-size-xs);">Anonymize comments and actions when interacting with confessions.</p>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Notifications -->
+            <div class="tab-panel animate-fade-in" id="sett-panel-notif">
+              <h3 class="mb-4">Notification Filters</h3>
+              <div class="flex flex-column gap-1">
+                <div class="switch-control">
+                  <div>
+                    <h4 class="m-0" style="font-size: var(--font-size-sm);">Email Alerts for Lost & Found Matches</h4>
+                    <p class="text-muted" style="font-size: var(--font-size-xs);">Get an email notification when someone reports finding an item similar to your lost post.</p>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="switch-control">
+                  <div>
+                    <h4 class="m-0" style="font-size: var(--font-size-sm);">Upcoming Registered Event Reminders</h4>
+                    <p class="text-muted" style="font-size: var(--font-size-xs);">Receive a reminder notification 24 hours prior to registered fests or hackathons.</p>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="switch-control">
+                  <div>
+                    <h4 class="m-0" style="font-size: var(--font-size-sm);">Mod Activity Alerts</h4>
+                    <p class="text-muted" style="font-size: var(--font-size-xs);">Receive alerts if your confessions are reviewed or reported.</p>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Appearance -->
+            <div class="tab-panel animate-fade-in" id="sett-panel-app">
+              <h3 class="mb-4">Appearance Settings</h3>
+              <div class="switch-control">
+                <div>
+                  <h4 class="m-0" style="font-size: var(--font-size-sm);">Interface Dark Theme</h4>
+                  <p class="text-muted" style="font-size: var(--font-size-xs);">Toggle between standard light and high contrast dark workspace styles.</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="switch-control">
+                <div>
+                  <h4 class="m-0" style="font-size: var(--font-size-sm);">Glassmorphism Backdrop Effects</h4>
+                  <p class="text-muted" style="font-size: var(--font-size-xs);">Enable visual backdrops transparency on header menus.</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Panel 5: Security -->
+            <div class="tab-panel animate-fade-in" id="sett-panel-sec">
+              <h3 class="mb-4">Security Parameters</h3>
+              <form onsubmit="event.preventDefault();">
+                <div class="form-group">
+                  <input type="password" id="cur-pass" class="form-control" placeholder=" ">
+                  <label for="cur-pass" class="form-label">Current Password</label>
+                </div>
+                <div class="grid grid-2 mb-3">
+                  <div class="form-group m-0">
+                    <input type="password" id="new-pass" class="form-control" placeholder=" ">
+                    <label for="new-pass" class="form-label">New Password</label>
+                  </div>
+                  <div class="form-group m-0">
+                    <input type="password" id="new-pass-conf" class="form-control" placeholder=" ">
+                    <label for="new-pass-conf" class="form-label">Confirm New Password</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-danger">Modify Security Password</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>

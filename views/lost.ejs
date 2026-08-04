@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lost &amp; Found - Campus Connect</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Core Stylesheets -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/pages.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Toggle Checkbox -->
+        <input class="sidebar-toggle" hidden="" id="sidebar-toggle" type="checkbox" />
+        <!-- Sidebar Element -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a class="sidebar-brand" href="index.html">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Campus Connect</span>
+                </a>
+                <label class="sidebar-menu-btn" for="sidebar-toggle">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </label>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="dashboard">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item active">
+                    <a href="lost-found.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Lost &amp; Found</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="events.html">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Events</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="confessions">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <span>Confessions</span>
+                    </a>
+                </li>
+                <li class="sidebar-item"
+                    style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!-- Main Content Wrapper -->
+        <div class="main-layout">
+            <!-- Navbar -->
+            <header class="navbar">
+                <div class="flex align-center gap-2">
+                    <label class="sidebar-menu-btn" for="sidebar-toggle"
+                        style="color: var(--text-dark); display: block; margin-right: 0.5rem;">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                    <div class="nav-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input placeholder="Search lost items..." type="text" />
+                    </div>
+                </div>
+                <div class="nav-actions">
+                    <a class="nav-icon-btn" href="404.html">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge-dot"></span>
+                    </a>
+                    <div class="profile-dropdown">
+                        <input class="dropdown-toggle" hidden="" id="profile-menu-toggle" type="checkbox" />
+                        <label class="profile-trigger" for="profile-menu-toggle">
+                            <img alt="Profile" class="profile-avatar"
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;q=80&amp;w=100" />
+                            <div class="profile-info">
+                                <span class="profile-name">Priya Sharma</span>
+                                <span class="profile-role">CSE • Semester 6</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down"
+                                style="font-size: 0.75rem; color: var(--text-light);"></i>
+                        </label>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="fa-regular fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a class="dropdown-item" href="settings.html">
+                                <i class="fa-solid fa-gears"></i>
+                                <span>Account Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="index.html">
+                                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
+                                <span>Sign Out</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- CSS Only Status Radios (Placed before content to drive filters) -->
+            <input checked="" hidden="" id="lf-filter-all" name="lf-status" type="radio" />
+            <input hidden="" id="lf-filter-lost" name="lf-status" type="radio" />
+            <input hidden="" id="lf-filter-found" name="lf-status" type="radio" />
+            <input hidden="" id="lf-filter-returned" name="lf-status" type="radio" />
+            <!-- Lost and Found Board Content -->
+            <main class="content animate-fade-in">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Lost &amp; Found Bulletin</h1>
+                        <p>Pinterest-style board showing lost, found or returned student items around campus.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a class="btn btn-danger" href="#post-modal-lost">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>Report Lost Item</span>
+                        </a>
+
+                    </div>
+                </div>
+                <!-- Search and Filter Chips Section -->
+                <div class="flex justify-between align-center mb-4 gap-2 flex-wrap">
+                    <div class="filter-chips">
+                        <label class="filter-chip-btn" for="lf-filter-all">All Items</label>
+                        <label class="filter-chip-btn" for="lf-filter-lost">Lost</label>
+                        <label class="filter-chip-btn" for="lf-filter-found">Found</label>
+                        <label class="filter-chip-btn" for="lf-filter-returned">Returned</label>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <select class="form-control"
+                            style="padding: 0.5rem 2rem 0.5rem 1rem; width: auto; font-size: var(--font-size-xs); background-position: right 0.5rem center;">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="stationery">Stationery</option>
+                            <option value="documents">Documents</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Masonry Grid Columns (Pinterest style) -->
+                <div class="masonry-grid">
+                    <!-- Card 1: Calculator -->
+                    <!-- <div class="masonry-item type-lost">
+                        <img alt="Casio Calculator"
+                            src="https://images.unsplash.com/photo-1629739890479-7a0e3609804b?auto=format&amp;fit=crop&amp;q=80&amp;w=350" />
+                        <div class="masonry-content">
+                            <div class="flex justify-between align-center mb-2">
+                                <span class="badge badge-danger">Lost</span>
+                                <span class="text-muted" style="font-size: 10px;">Electronics</span>
+                            </div>
+                            <h3 style="font-size: var(--font-size-sm); margin-bottom: 0.5rem;">Scientific Calculator
+                                Casio fx-991EX</h3>
+                            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 0.75rem; line-height: 1.4;">
+                                Lost during late practical lectures at Lab Block C Room 302. Calculator has a small
+                                yellow sticker at the back.
+                            </p>
+                            <ul class="text-muted"
+                                style="list-style: none; font-size: 10px; padding: 0; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                                <li><i class="fa-solid fa-location-dot"></i> Lab Block C Room 302</li>
+                                <li><i class="fa-regular fa-calendar-days"></i> July 05, 2026</li>
+                            </ul>
+                            <div class="flex gap-1 pt-2"
+                                style="border-top: 1px solid var(--border-color); font-size: var(--font-size-xs);">
+                                <a class="btn btn-outline" href="#contact-modal"
+                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">Contact</a>
+                                <a class="btn btn-ghost" href="#detail-modal-1"
+                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">View Details</a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Card 2: Spectacles -->
+
+                    <!-- Card 3: Keyring -->
+
+                    <!-- Card 4: Lab Notebook -->
+                    <!-- <div class="masonry-item type-lost">
+                        <img alt="Notebook"
+                            src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&amp;fit=crop&amp;q=80&amp;w=350" />
+                        <div class="masonry-content">
+                            <div class="flex justify-between align-center mb-2">
+                                <span class="badge badge-danger">Lost</span>
+                                <span class="text-muted" style="font-size: 10px;">Stationery</span>
+                            </div>
+                            <h3 style="font-size: var(--font-size-sm); margin-bottom: 0.5rem;">Chemistry Lab Manual
+                                &amp; Notebook</h3>
+                            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 0.75rem; line-height: 1.4;">
+                                Blue bound folder with "Priya Sharma" written on the front cover. Essential for term end
+                                evaluation.
+                            </p>
+                            <ul class="text-muted"
+                                style="list-style: none; font-size: 10px; padding: 0; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                                <li><i class="fa-solid fa-location-dot"></i> Chemistry Lab Block A</li>
+                                <li><i class="fa-regular fa-calendar-days"></i> July 02, 2026</li>
+                            </ul>
+                            <div class="flex gap-1 pt-2"
+                                style="border-top: 1px solid var(--border-color); font-size: var(--font-size-xs);">
+                                <a class="btn btn-outline" href="#contact-modal"
+                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">Contact</a>
+                                <a class="btn btn-ghost" href="#detail-modal-4"
+                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- CSS Only Modal for reporting object (Lost) -->
+                <div class="report-overlay animate-fade-in" id="post-modal-lost">
+                    <div class="card-modern"
+                        style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
+                        <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+                        <h3 class="mb-4">Report Lost Item</h3>
+                        <form action="/lost" method="POST">
+                            <div class="form-group">
+                                <input class="form-control" id="l-title" name="itemname" placeholder=" " required="" type="text" />
+                                <label class="form-label" for="l-title">Item Name</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="l-desc" name="description" placeholder=" " required=""
+                                    style="height: 100px; resize: none;"></textarea>
+                                <label class="form-label" for="l-desc">Description (specific marks, colors,
+                                    brand...)</label>
+                            </div>
+                            <div class="grid grid-2 mb-2">
+                                <div class="form-group m-0">
+                                    <input class="form-control" id="l-loc" name="lost_location" placeholder=" " required="" type="text" />
+                                    <label class="form-label" for="l-loc">Lost Location</label>
+                                </div>
+                                <div class="form-group m-0">
+                                    <input class="form-control" id="l-date" name="date" placeholder=" " required="" type="date" />
+                                    <label class="form-label" for="l-date">Date Lost</label>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <input accept="image/*" class="form-control" type="file" />
+                                <label class="form-label"
+                                    style="transform: translateY(-135%) scale(0.85); color: var(--primary-color); background: var(--card-bg); padding: 0 0.35rem; left: 0.65rem;">Item
+                                    Image</label>
+                            </div> -->
+                            <div class="flex gap-2 justify-end" style="margin-top: 1.5rem;">
+                                <a class="btn btn-ghost" href="#">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Submit Report</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- CSS Only Modal for reporting object (Found) -->
+
+                <!-- CSS Only Contact Modal -->
+                <div class="report-overlay animate-fade-in" id="contact-modal">
+                    <div class="card-modern"
+                        style="max-width: 440px; width: 100%; position: relative; padding: 2.5rem; text-align: center; margin: auto;">
+                        <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+                        <i class="fa-regular fa-envelope text-primary"
+                            style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <h3 class="mb-2">Contact Owner / Finder</h3>
+                        <p class="text-muted mb-4" style="font-size: var(--font-size-sm);">
+                            Send an email to coordinate the retrieval of this item.
+                        </p>
+                        <div class="card-modern"
+                            style="padding: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); text-align: left; margin-bottom: 1.5rem;">
+                            <p
+                                style="font-size: var(--font-size-xs); color: var(--text-light); margin-bottom: 0.25rem;">
+                                Recipient Address</p>
+                            <p style="font-size: var(--font-size-sm); font-weight: 600; color: var(--text-dark);">
+                                student-retrievals@college.edu</p>
+                        </div>
+                        <a class="btn btn-primary w-full py-3"
+                            href="mailto:student-retrievals@college.edu?subject=Campus%20Connect%20Lost%20Item%20Inquiry">Open
+                            Mail Client</a>
+                    </div>
+                </div>
+                <!-- CSS Only Detail Modals -->
+                <div class="report-overlay animate-fade-in" id="detail-modal-1">
+                    <div class="card-modern"
+                        style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
+                        <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+                        <img alt="Detail Image"
+                            src="https://images.unsplash.com/photo-1629739890479-7a0e3609804b?auto=format&amp;fit=crop&amp;q=80&amp;w=500"
+                            style="border-radius: var(--radius-md); margin-bottom: 1.5rem; max-height: 280px; object-fit: cover; width: 100%;" />
+                        <div class="flex justify-between align-center mb-2">
+                            <span class="badge badge-danger">Lost</span>
+                            <span class="text-muted" style="font-size: var(--font-size-xs);">Posted: July 05,
+                                2026</span>
+                        </div>
+                        <h3 class="mb-3">Scientific Calculator Casio fx-991EX</h3>
+                        <p class="text-dark mb-4" style="font-size: var(--font-size-sm); line-height: 1.6;">
+                            Lost during late practical lectures at Lab Block C Room 302. Calculator has a small yellow
+                            sticker at the back. It is critical for my upcoming engineering exams. Please contact if
+                            found.
+                        </p>
+                        <div class="grid grid-2 text-muted"
+                            style="font-size: var(--font-size-xs); background: var(--bg-color); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+                            <div><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Lab Block C Room
+                                302</div>
+                            <div><i class="fa-regular fa-user"></i> <strong>Reported by:</strong> Rohan Verma (Sem 4)
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-end">
+                            <a class="btn btn-ghost" href="#">Close</a>
+                            <a class="btn btn-primary" href="#contact-modal">Contact Rohan</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

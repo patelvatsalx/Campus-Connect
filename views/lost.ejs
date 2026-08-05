@@ -155,110 +155,29 @@
                 </div>
                 <!-- Masonry Grid Columns (Pinterest style) -->
                 <div class="masonry-grid">
-                    <!-- Card 1: Calculator -->
-                    <!-- <div class="masonry-item type-lost">
-                        <img alt="Casio Calculator"
-                            src="https://images.unsplash.com/photo-1629739890479-7a0e3609804b?auto=format&amp;fit=crop&amp;q=80&amp;w=350" />
-                        <div class="masonry-content">
-                            <div class="flex justify-between align-center mb-2">
-                                <span class="badge badge-danger">Lost</span>
-                                <span class="text-muted" style="font-size: 10px;">Electronics</span>
-                            </div>
-                            <h3 style="font-size: var(--font-size-sm); margin-bottom: 0.5rem;">Scientific Calculator
-                                Casio fx-991EX</h3>
-                            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 0.75rem; line-height: 1.4;">
-                                Lost during late practical lectures at Lab Block C Room 302. Calculator has a small
-                                yellow sticker at the back.
-                            </p>
-                            <ul class="text-muted"
-                                style="list-style: none; font-size: 10px; padding: 0; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                                <li><i class="fa-solid fa-location-dot"></i> Lab Block C Room 302</li>
-                                <li><i class="fa-regular fa-calendar-days"></i> July 05, 2026</li>
-                            </ul>
-                            <div class="flex gap-1 pt-2"
-                                style="border-top: 1px solid var(--border-color); font-size: var(--font-size-xs);">
-                                <a class="btn btn-outline" href="#contact-modal"
-                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">Contact</a>
-                                <a class="btn btn-ghost" href="#detail-modal-1"
-                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">View Details</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- Card 2: Spectacles -->
+                   
+                   
+                    Card 4: Lab Notebook 
 
-                    <!-- Card 3: Keyring -->
 
-                    <!-- Card 4: Lab Notebook -->
-                    <!-- <div class="masonry-item type-lost">
-                        <img alt="Notebook"
-                            src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&amp;fit=crop&amp;q=80&amp;w=350" />
-                        <div class="masonry-content">
-                            <div class="flex justify-between align-center mb-2">
-                                <span class="badge badge-danger">Lost</span>
-                                <span class="text-muted" style="font-size: 10px;">Stationery</span>
-                            </div>
-                            <h3 style="font-size: var(--font-size-sm); margin-bottom: 0.5rem;">Chemistry Lab Manual
-                                &amp; Notebook</h3>
-                            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 0.75rem; line-height: 1.4;">
-                                Blue bound folder with "Priya Sharma" written on the front cover. Essential for term end
-                                evaluation.
-                            </p>
-                            <ul class="text-muted"
-                                style="list-style: none; font-size: 10px; padding: 0; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                                <li><i class="fa-solid fa-location-dot"></i> Chemistry Lab Block A</li>
-                                <li><i class="fa-regular fa-calendar-days"></i> July 02, 2026</li>
-                            </ul>
-                            <div class="flex gap-1 pt-2"
-                                style="border-top: 1px solid var(--border-color); font-size: var(--font-size-xs);">
-                                <a class="btn btn-outline" href="#contact-modal"
-                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">Contact</a>
-                                <a class="btn btn-ghost" href="#detail-modal-4"
-                                    style="padding: 0.4rem 0.75rem; font-size: 10px; flex: 1;">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- CSS Only Modal for reporting object (Lost) -->
-                <div class="report-overlay animate-fade-in" id="post-modal-lost">
-                    <div class="card-modern"
-                        style="max-width: 580px; width: 100%; position: relative; padding: 2.5rem; margin: auto;">
-                        <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
-                        <h3 class="mb-4">Report Lost Item</h3>
-                        <form action="/lost" method="POST">
-                            <div class="form-group">
-                                <input class="form-control" id="l-title" name="itemname" placeholder=" " required="" type="text" />
-                                <label class="form-label" for="l-title">Item Name</label>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" id="l-desc" name="description" placeholder=" " required=""
-                                    style="height: 100px; resize: none;"></textarea>
-                                <label class="form-label" for="l-desc">Description (specific marks, colors,
-                                    brand...)</label>
-                            </div>
-                            <div class="grid grid-2 mb-2">
-                                <div class="form-group m-0">
-                                    <input class="form-control" id="l-loc" name="lost_location" placeholder=" " required="" type="text" />
-                                    <label class="form-label" for="l-loc">Lost Location</label>
-                                </div>
-                                <div class="form-group m-0">
-                                    <input class="form-control" id="l-date" name="date" placeholder=" " required="" type="date" />
-                                    <label class="form-label" for="l-date">Date Lost</label>
-                                </div>
-                            </div>
-                            <!-- <div class="form-group">
-                                <input accept="image/*" class="form-control" type="file" />
-                                <label class="form-label"
-                                    style="transform: translateY(-135%) scale(0.85); color: var(--primary-color); background: var(--card-bg); padding: 0 0.35rem; left: 0.65rem;">Item
-                                    Image</label>
-                            </div> -->
-                            <div class="flex gap-2 justify-end" style="margin-top: 1.5rem;">
-                                <a class="btn btn-ghost" href="#">Cancel</a>
-                                <button class="btn btn-primary" type="submit">Submit Report</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- CSS Only Modal for reporting object (Found) -->
+                  <div class="lost-items-container">
+    <% items.forEach(item => { %>
+        <div class="lost-card">
+            <h3><%= item.itemname %></h3>
+
+            <p><strong>Description:</strong> <%= item.description %></p>
+
+            <p><strong>Lost Location:</strong> <%= item.lost_location %></p>
+
+            <p><strong>Date:</strong> <%= item.date.toDateString() %></p>
+
+            <!-- <button class="contact-btn">Contact</button> -->
+        </div>
+    <% }) %>
+</div>
+                    
+
+            
 
                 <!-- CSS Only Contact Modal -->
                 <div class="report-overlay animate-fade-in" id="contact-modal">

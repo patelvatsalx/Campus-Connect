@@ -174,14 +174,13 @@ app.post("/lost", async function (req, res) {
     res.redirect("/lost");
 });
 
-app.get("/itemlost", async function(req, res){
-    let allitems = await Lost.find({})
-    res.send(allitems)
-
+app.get("/lostitem", async function(req, res){
+    
 })
 
-app.get("/lost", function (req, res) {
-    res.render("lost");
+app.get("/lost", async function (req, res) {
+    const allitems = await Lost.find({});
+    res.render("lost", { items: allitems });
 });
 
 app.get("/found", async function(req, res){

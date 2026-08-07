@@ -23,7 +23,7 @@
         <!-- Sidebar Element -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a class="sidebar-brand" href="index.html">
+                <a class="sidebar-brand" href="/">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Campus Connect</span>
                 </a>
@@ -33,32 +33,32 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="dashboard">
+                    <a href="/dashboard">
                         <i class="fa-solid fa-chart-pie"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item active">
-                    <a href="lost-found.html">
+                    <a href="/lost">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <span>Lost &amp; Found</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="events.html">
+                    <a href="/events">
                         <i class="fa-solid fa-calendar-days"></i>
                         <span>Events</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="confessions">
+                    <a href="/confessions">
                         <i class="fa-solid fa-user-secret"></i>
                         <span>Confessions</span>
                     </a>
                 </li>
                 <li class="sidebar-item"
                     style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
-                    <a href="settings.html">
+                    <a href="/settings">
                         <i class="fa-solid fa-gear"></i>
                         <span>Settings</span>
                     </a>
@@ -80,38 +80,13 @@
                     </div>
                 </div>
                 <div class="nav-actions">
-                    <a class="nav-icon-btn" href="404.html">
+                    <a class="nav-icon-btn" href="/404">
                         <i class="fa-regular fa-bell"></i>
                         <span class="badge-dot"></span>
                     </a>
-                    <div class="profile-dropdown">
-                        <input class="dropdown-toggle" hidden="" id="profile-menu-toggle" type="checkbox" />
-                        <label class="profile-trigger" for="profile-menu-toggle">
-                            <img alt="Profile" class="profile-avatar"
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;q=80&amp;w=100" />
-                            <div class="profile-info">
-                                <span class="profile-name">Priya Sharma</span>
-                                <span class="profile-role">CSE • Semester 6</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-down"
-                                style="font-size: 0.75rem; color: var(--text-light);"></i>
-                        </label>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="fa-regular fa-user"></i>
-                                <span>My Profile</span>
-                            </a>
-                            <a class="dropdown-item" href="settings.html">
-                                <i class="fa-solid fa-gears"></i>
-                                <span>Account Settings</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="index.html">
-                                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
-                                <span>Sign Out</span>
-                            </a>
-                        </div>
-                    </div>
+                    <form action="/logout" method="POST" style="margin:0;">
+                        <button class="btn btn-ghost" type="submit">Logout</button>
+                    </form>
                 </div>
             </header>
             <!-- CSS Only Status Radios (Placed before content to drive filters) -->
@@ -121,6 +96,8 @@
             <input hidden="" id="lf-filter-returned" name="lf-status" type="radio" />
             <!-- Lost and Found Board Content -->
             <main class="content animate-fade-in">
+                <% if (error) { %><div class="card-modern" style="margin:1rem 0;padding:1rem;background:rgba(239, 68, 68, 0.08);"><%= error %></div><% } %>
+                <% if (success) { %><div class="card-modern" style="margin:1rem 0;padding:1rem;background:rgba(34, 197, 94, 0.08);"><%= success %></div><% } %>
                 <div class="page-header">
                     <div class="page-title">
                         <h1>Lost &amp; Found Bulletin</h1>
@@ -131,7 +108,6 @@
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <span>Report Lost Item</span>
                         </a>
-
                     </div>
                 </div>
                 <!-- Search and Filter Chips Section -->
@@ -155,29 +131,51 @@
                 </div>
                 <!-- Masonry Grid Columns (Pinterest style) -->
                 <div class="masonry-grid">
-                   
-                   
-                    Card 4: Lab Notebook 
+                    <div class="lost-items-container">
+                        <% items.forEach(item => { %>
+                            <div class="lost-card">
+                                <div class="card-header">
+                                    <h2><%= item.itemname %></h2>
+                                    <span class="status">Lost</span>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Description</strong><br><%= item.description %></p>
+                                    <p><strong>Lost Location</strong><br><%= item.lost_location %></p>
+                                    <p><strong>Date</strong><br><%= item.date.toDateString() %></p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#contact-modal" class="contact-btn">Contact</a>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
 
-
-                  <div class="lost-items-container">
-    <% items.forEach(item => { %>
-        <div class="lost-card">
-            <h3><%= item.itemname %></h3>
-
-            <p><strong>Description:</strong> <%= item.description %></p>
-
-            <p><strong>Lost Location:</strong> <%= item.lost_location %></p>
-
-            <p><strong>Date:</strong> <%= item.date.toDateString() %></p>
-
-            <!-- <button class="contact-btn">Contact</button> -->
-        </div>
-    <% }) %>
-</div>
-                    
-
-            
+                <div class="report-overlay animate-fade-in" id="post-modal-lost">
+                    <div class="card-modern" style="max-width: 520px; width: 100%; position: relative; padding: 2rem; margin: auto;">
+                        <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+                        <h3 class="mb-3">Report a Lost Item</h3>
+                        <form action="/lost" method="POST">
+                            <div class="form-group">
+                                <label for="itemname">Item Name</label>
+                                <input id="itemname" class="form-control" name="itemname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" class="form-control" name="description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="lost_location">Location</label>
+                                <input id="lost_location" class="form-control" name="lost_location" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input id="date" class="form-control" type="date" name="date">
+                            </div>
+                            <button class="btn btn-primary w-full" type="submit">Submit Report</button>
+                        </form>
+                    </div>
+                </div>
 
                 <!-- CSS Only Contact Modal -->
                 <div class="report-overlay animate-fade-in" id="contact-modal">

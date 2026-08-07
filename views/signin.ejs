@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Campus Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
 </head>
-<body class="w-full h-screen bg-zinc-900 text-white p-10">
-    <h2 class="text-2xl font-bold mb-5">Welcome to Campus Connect</h2>
-    <form action="/signin" method="POST" class="flex flex-col gap-4 w-80">
-        <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="text" name="username" placeholder="Username" required>
-        <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="email" name="email" placeholder="Email" required>
-        <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="password" name="password" placeholder="Password" required>
-        <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="number" name="age" placeholder="Age">
-        <button class="px-5 py-2 rounded-md bg-blue-500 cursor-pointer text-white font-medium" type="submit">Create Account</button>
-        
-    </form>
-    <button onclick=" window.location.href='/login' " position-center relative top-5 left-10 px-5 py-2 rounded-md bg-blue-500 cursor-pointer text-white font-medium type="button" " >Already Have an Account?</button> 
-    </body>
+<body>
+  <div class="hero-section" style="min-height:100vh;display:flex;align-items:center;justify-content:center;">
+    <div class="card-modern" style="width:min(100%,460px);padding:2rem;">
+      <h2 class="mb-3">Create your account</h2>
+      <p class="text-muted mb-4">Join Campus Connect to report issues, share confessions, and stay in the loop.</p>
+      <% if (error) { %><div class="card-modern" style="margin-bottom:1rem;padding:.75rem;background:rgba(239,68,68,.08);"><%= error %></div><% } %>
+      <form action="/signin" method="POST" class="flex flex-column gap-3">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" class="form-control" type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" class="form-control" type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" class="form-control" type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input id="age" class="form-control" type="number" name="age" placeholder="Age">
+        </div>
+        <button class="btn btn-primary" type="submit">Create Account</button>
+        <a href="/login" class="btn btn-ghost">Already have an account?</a>
+      </form>
+    </div>
+  </div>
+</body>
 </html>

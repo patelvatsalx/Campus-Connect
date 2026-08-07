@@ -34,32 +34,32 @@
       </div>
       <ul class="sidebar-nav">
         <li class="sidebar-item">
-          <a href="dashboard.html">
+          <a href="/dashboard">
             <i class="fa-solid fa-chart-pie"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a href="lost-found.html">
+          <a href="/lost">
             <i class="fa-solid fa-magnifying-glass"></i>
             <span>Lost & Found</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a href="events.html">
+          <a href="/events">
             <i class="fa-solid fa-calendar-days"></i>
             <span>Events</span>
           </a>
         </li>
         <li class="sidebar-item active">
-          <a href="confessions">
+          <a href="/confessions">
             <i class="fa-solid fa-user-secret"></i>
             <span>Confessions</span>
           </a>
         </li>
         <li class="sidebar-item"
           style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem;">
-          <a href="settings.html">
+          <a href="/settings">
             <i class="fa-solid fa-gear"></i>
             <span>Settings</span>
           </a>
@@ -82,37 +82,13 @@
           </div>
         </div>
         <div class="nav-actions">
-          <a href="404.html" class="nav-icon-btn">
+          <a href="/404" class="nav-icon-btn">
             <i class="fa-regular fa-bell"></i>
             <span class="badge-dot"></span>
           </a>
-          <div class="profile-dropdown">
-            <input type="checkbox" id="profile-menu-toggle" class="dropdown-toggle" hidden>
-            <label for="profile-menu-toggle" class="profile-trigger">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
-                alt="Profile" class="profile-avatar">
-              <div class="profile-info">
-                <span class="profile-name">Priya Sharma</span>
-                <span class="profile-role">CSE • Semester 6</span>
-              </div>
-              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-light);"></i>
-            </label>
-            <div class="dropdown-menu">
-              <a href="profile.html" class="dropdown-item">
-                <i class="fa-regular fa-user"></i>
-                <span>My Profile</span>
-              </a>
-              <a href="settings.html" class="dropdown-item">
-                <i class="fa-solid fa-gears"></i>
-                <span>Account Settings</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="index.html" class="dropdown-item text-danger">
-                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger-color);"></i>
-                <span>Sign Out</span>
-              </a>
-            </div>
-          </div>
+          <form action="/logout" method="POST" style="margin:0;">
+            <button type="submit" class="btn btn-ghost">Logout</button>
+          </form>
         </div>
       </header>
 
@@ -160,6 +136,9 @@
 
 
 
+      <% if (error) { %><div class="card-modern" style="margin:1rem 0;padding:1rem;background:rgba(239, 68, 68, 0.08);"><%= error %></div><% } %>
+      <% if (success) { %><div class="card-modern" style="margin:1rem 0;padding:1rem;background:rgba(34, 197, 94, 0.08);"><%= success %></div><% } %>
+
       <div class="confession-composer">
         <div class="confession-form-card">
           <div class="confession-form-header">
@@ -197,14 +176,13 @@
       <div class="confessions-feed">
 
         <h1>All Confessions</h1>
-        <% allconfessions.forEach(confession=> { %>
-          <h2>
-            <%= confession.title %>
-          </h2>
-          <p>
-            <%= confession.content %>
-          </p>
-          <% }) %>        
+        <% allconfessions.forEach(confession => { %>
+          <div class="card-modern" style="margin-bottom:1rem;padding:1rem;">
+            <h2 style="font-size:1.1rem;margin-bottom:.5rem;"><%= confession.title %></h2>
+            <p><%= confession.content %></p>
+            <span class="text-muted" style="font-size:.8rem;"><%= confession.createdAt.toLocaleString() %></span>
+          </div>
+        <% }) %>
 
             <!-- <div class="confession-card">
               
